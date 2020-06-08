@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './login.css'
-import { login, ACCESS_TOKEN } from '../../services/Api'
+import { login } from '../../services/Api'
 import {notification} from 'antd'
 import {useHistory } from 'react-router-dom';
-
+import {ACCESS_TOKEN} from '../common/Constantes'
 const LoginForm = props => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')

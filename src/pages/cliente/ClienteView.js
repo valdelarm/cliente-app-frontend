@@ -3,6 +3,7 @@ import '../../App.css';
 import ClienteList from './ClienteList';
 import AddClienteForm from './AddClienteForm';
 import EditClienteForm from './EditClienteForm';
+import AppHeader from '../common/Header'
 
 function ClienteView() {
     const clientesData = [
@@ -42,6 +43,7 @@ function ClienteView() {
     <div className="container">
     <h1>Clientes</h1>
     <div className="flex-row">
+    <AppHeader />
       <div className="flex-large">
       {editing ? (
     <div>

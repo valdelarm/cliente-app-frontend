@@ -5,11 +5,11 @@ import {
   } from "react-router-dom";
   
   
-const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
       {...rest}
       render={props =>
-        authenticated ? (
+        localStorage.getItem('accessToken') ? (
           <Component {...rest} {...props} />
         ) : (
           <Redirect

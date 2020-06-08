@@ -1,5 +1,5 @@
-export const ACCESS_TOKEN = 'accessToken'
-const API_BASE_URL = 'http://localhost:8080/api/v1'
+import {ACCESS_TOKEN, API_BASE_URL} from '../pages/common/Constantes'
+
 const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json',
