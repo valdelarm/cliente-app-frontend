@@ -1,33 +1,43 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect}  from 'react';
 import '../../App.css';
 import ClienteList from './ClienteList';
 import AddClienteForm from './AddClienteForm';
 import EditClienteForm from './EditClienteForm';
 import AppHeader from '../common/Header'
+import {getClientes, deleteClientePorId} from '../../services/Api'
 
 function ClienteView() {
-    const clientesData = [
-      { id: 1, nome: 'Valdelar', cpf: '2323223' },
-      { id: 2, nome: 'Karen', cpf: '2233224444' },
-      { id: 3, nome: 'Michele', cpf: '23233' },
-    ]
 
-    const initialFormState = { id: null, nome: '', cpf: '' }
+    const initialFormState = { id: null, nome: '', cpf: '', cep: '', logradouro: '' }
   
-    const [clientes, setClientes] = useState(clientesData)
+    const [clientes, setClientes] = useState([])
     const [editing, setEditing] = useState(false)
     const [currentCliente, setCurrentCliente] = useState(initialFormState)
 
+    useEffect(() => {
+      getAllClientes();
+    }, []);
+
+    async function getAllClientes() {
+      getClientes().then(response => {
+        setClientes(response)
+      })
+    }
 
     const addCliente = cliente => {
       cliente.id = clientes.length + 1
       setClientes([...clientes, cliente])
     }
 
-    const deleteCliente = id => {
-      setClientes(clientes.filter(cliente => cliente.id !== id))
-    }
+    
+    function deleteCliente(id) {
+      deleteClientePorId(id).then(response => {
+      })
 
+      window.location.reload()
+
+    }
+    
     const editRow = cliente => {
       setEditing(true)
     
@@ -61,6 +71,8 @@ function ClienteView() {
     </div>
   )}
       </div>
+      </div>
+      <div className="flex-row">
       <div className="flex-large">
         <h2>Visualizar Clientes</h2>
         <ClienteList clientes={clientes} deleteCliente={deleteCliente} editRow={editRow}/>

@@ -6,6 +6,13 @@ const ClienteList = props => (
             <tr>
                 <th>Nome</th>
                 <th>CPF</th>
+                <th>CEP</th>
+                <th>Logradouro</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -15,6 +22,13 @@ const ClienteList = props => (
                     <tr key={cliente.id}>
                         <td>{cliente.nome}</td>
                         <td>{cliente.cpf}</td>
+                        <td>{cliente.cep}</td>
+                        <td>{cliente.logradouro}</td>
+                        <td>{cliente.bairro}</td>
+                        <td>{cliente.cidade}</td>
+                        <td>{cliente.uf}</td>
+                        <td>{cliente.telefone}</td>
+                        <td>{cliente.email}</td>
                         <td>
                             <button onClick={() => {props.editRow(cliente) }}className="button muted-button">
                                     Editar

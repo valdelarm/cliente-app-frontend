@@ -30,3 +30,26 @@ export function login(loginRequest) {
         body: JSON.stringify(loginRequest)
     });
 }
+
+export function saveCliente(clienteRequest) {
+    return request({
+        url: API_BASE_URL + "/clientes",
+        method: 'POST',
+        body: JSON.stringify(clienteRequest)
+    });
+}
+
+
+export function getClientes() {
+    return request({
+        url: API_BASE_URL + "/clientes",
+        method: 'GET',
+    });
+}
+
+export function deleteClientePorId(id) {
+    return request({
+        url: API_BASE_URL + "/clientes/" + id,
+        method: 'DELETE',
+    });
+}
