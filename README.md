@@ -1,6 +1,6 @@
 # Client API para cadastro de cliente
 
-Aplicação feita usando angular para consumo da API https://github.com/valdelarm/cliente-app-backend
+Aplicação feita usando React para consumo da API https://github.com/valdelarm/cliente-app-backend
 
 ### Pré-requisito
 
